@@ -9,7 +9,7 @@ const HomeGrid = ({ igrejaSelecionada, mesSelecionado, atualizar }) => {
   useEffect(() => {
     const buscarDados = async () => {
       try {
-        let url = `http://localhost:3000/financeiro/grid`;
+        let url = `${import.meta.env.VITE_API_URL}/financeiro/grid`;
         const params = new URLSearchParams();
 
         const temFiltro = igrejaSelecionada || mesSelecionado;
@@ -67,10 +67,10 @@ const HomeGrid = ({ igrejaSelecionada, mesSelecionado, atualizar }) => {
                 })}
               </td>
               <td>{new Date(item.data).toLocaleDateString("pt-BR")}</td>
-              <button style={{marginLeft: "10px"}}>
+              <button style={{ marginLeft: "10px" }}>
                 <FaEdit />
               </button>
-              <button style={{marginLeft: "10px"}}>
+              <button style={{ marginLeft: "10px" }}>
                 <FaTrash />
               </button>
             </tr>

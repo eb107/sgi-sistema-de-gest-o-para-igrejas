@@ -25,7 +25,9 @@ const SideBar = () => {
   useEffect(() => {
     const fetchIgrejas = async () => {
       try {
-        const response = await fetch("http://localhost:3000/select-igrejas");
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/select-igrejas`
+        );
         const data = await response.json();
         setIgrejas(data);
       } catch (error) {
@@ -60,7 +62,7 @@ const SideBar = () => {
 
     try {
       const res = await fetch(
-        "http://localhost:3000/financeiro/lancamento-financeiro",
+        `${import.meta.env.VITE_API_URL}/financeiro/lancamento-financeiro`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

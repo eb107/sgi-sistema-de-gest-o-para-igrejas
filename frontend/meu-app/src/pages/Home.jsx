@@ -39,7 +39,9 @@ const Home = ({ type }) => {
         if (igrejaSelecionada) params.append("igreja", igrejaSelecionada);
         if (mesSelecionado) params.append("mes", Number(mesSelecionado));
         const response = await fetch(
-          `http://localhost:3000/financeiro/soma-entradas?${params.toString()}`
+          `${
+            import.meta.env.VITE_API_URL
+          }/financeiro/soma-entradas?${params.toString()}`
         );
         const data = await response.json();
         setValorRecebimento(parseFloat(data.TotalEntradas || 0));
@@ -59,7 +61,9 @@ const Home = ({ type }) => {
         if (igrejaSelecionada) params.append("igreja", igrejaSelecionada);
         if (mesSelecionado) params.append("mes", Number(mesSelecionado));
         const response = await fetch(
-          `http://localhost:3000/financeiro/soma-saidas?${params.toString()}`
+          `${
+            import.meta.env.VITE_API_URL
+          }/financeiro/soma-saidas?${params.toString()}`
         );
         const data = await response.json();
         setValorSaida(parseFloat(data.TotalSaidas || 0));
@@ -79,7 +83,9 @@ const Home = ({ type }) => {
         if (igrejaSelecionada) params.append("igreja", igrejaSelecionada);
         if (mesSelecionado) params.append("mes", Number(mesSelecionado));
         const response = await fetch(
-          `http://localhost:3000/financeiro/diferenca?${params.toString()}`
+          `${
+            import.meta.env.VITE_API_URL
+          }/financeiro/diferenca?${params.toString()}`
         );
         const data = await response.json();
         setValorDiferenca(parseFloat(data.diferenca || 0));
@@ -96,7 +102,7 @@ const Home = ({ type }) => {
   //   const buscarDados = async () => {
   //     try {
   //       const response = await fetch(
-  //         "http://localhost:3000/financeiro/detalhe-diferenca"
+  //         "${process.env.REACT_APP_API_URL}/financeiro/detalhe-diferenca"
   //       );
   //       const data = await response.json();
   //       setValorDetalheBanco(parseFloat(data.banco_menos_caixa || 0));
@@ -113,7 +119,7 @@ const Home = ({ type }) => {
   //   const buscarDados = async () => {
   //     try {
   //       const response = await fetch(
-  //         "http://localhost:3000/financeiro/detalhe-diferenca"
+  //         "${process.env.REACT_APP_API_URL}/financeiro/detalhe-diferenca"
   //       );
   //       const data = await response.json();
   //       setValorDetalheCaixa(parseFloat(data.caixa_menos_banco || 0));
@@ -133,7 +139,9 @@ const Home = ({ type }) => {
         if (igrejaSelecionada) params.append("igreja", igrejaSelecionada);
         if (mesSelecionado) params.append("mes", Number(mesSelecionado));
         const response = await fetch(
-          `http://localhost:3000/financeiro/detalhe-diferenca?${params.toString()}`
+          `${
+            import.meta.env.VITE_API_URL
+          }/financeiro/detalhe-diferenca?${params.toString()}`
         );
         const data = await response.json();
 
@@ -153,7 +161,9 @@ const Home = ({ type }) => {
   useEffect(() => {
     const fetchIgrejas = async () => {
       try {
-        const response = await fetch("http://localhost:3000/select-igrejas");
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/select-igrejas`
+        );
         const data = await response.json();
         setIgrejas(data);
       } catch (error) {
@@ -165,7 +175,7 @@ const Home = ({ type }) => {
   }, []);
 
   useEffect(() => {
-    const socket = io("http://localhost:3000");
+    const socket = io(import.meta.env.VITE_API_URL);
 
     socket.on("novo_lancamento", () => {
       console.log("📢 Novo Lançamento detectado!");

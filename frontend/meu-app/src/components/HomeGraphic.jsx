@@ -38,7 +38,7 @@ const GraficoIgrejas = ({ atualizar }) => {
     const buscarDados = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/financeiro/grafico-igrejas"
+          `${import.meta.env.VITE_API_URL}/financeiro/grafico-igrejas`
         );
         const data = await response.json();
 
@@ -81,14 +81,9 @@ const GraficoIgrejas = ({ atualizar }) => {
       pdf.setFontSize(14);
       pdf.setFont("helvetica", "normal");
       const anoAtual = new Date().getFullYear();
-      pdf.text(
-        `${meses[mesesSelecionado - 1]}/${anoAtual}`,
-        largura / 2,
-        25,
-        {
-          align: "center",
-        }
-      );
+      pdf.text(`${meses[mesesSelecionado - 1]}/${anoAtual}`, largura / 2, 25, {
+        align: "center",
+      });
 
       pdf.addImage(imgData, "PNG", 10, 35, largura - 20, altura - 80);
       pdf.save(`grafico-${meses[mesesSelecionado - 1]}.pdf`);
@@ -118,8 +113,12 @@ const GraficoIgrejas = ({ atualizar }) => {
         </button>
       </div>
 
-      <div ref={chartRef} >
-        <ResponsiveContainer width="100%" height={700} className="responsive-graphic">
+      <div ref={chartRef}>
+        <ResponsiveContainer
+          width="100%"
+          height={700}
+          className="responsive-graphic"
+        >
           <LineChart
             data={dadosFiltrados}
             margin={{ top: 20, right: 30, left: 0, bottom: 5 }}

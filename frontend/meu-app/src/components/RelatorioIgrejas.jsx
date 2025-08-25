@@ -33,8 +33,12 @@ const RelatorioIgrejas = () => {
     const buscarRelatorio = async () => {
       try {
         let rota = isAnalitic
-          ? "http://localhost:3000/financeiro/relatorio-igrejas-analitico"
-          : "http://localhost:3000/financeiro/relatorio-igrejas-sintetico";
+          ? `${
+              import.meta.env.VITE_API_URL
+            }/financeiro/relatorio-igrejas-analitico`
+          : `${
+              import.meta.env.VITE_API_URL
+            }/financeiro/relatorio-igrejas-sintetico`;
 
         const params = new URLSearchParams();
         if (mesSelecionado) params.append("mes", mesSelecionado);
