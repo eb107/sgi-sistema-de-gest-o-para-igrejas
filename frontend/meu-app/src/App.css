@@ -735,6 +735,36 @@ button:focus {
 /* ===== Responsividade ===== */
 
 /* Tablets e laptops menores */
+@media (min-width: 1024px) and (max-width: 1375px) {
+  .home__dashboards {
+    width: 110%;
+    display: flex;
+  }
+
+  .home__dashboards2 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .home__dashboards {
+    width: 50%;
+  }
+
+  .home__main-dashboards {
+    width: 105%;
+  }
+
+  .home__dashboards-info-total {
+    width: 80%;
+  }
+
+  .home__dashboards-info {
+    width: 70%;
+  }
+}
+
+
 @media (max-width: 1024px) {
   .home__main {
     padding-left: 20px;
