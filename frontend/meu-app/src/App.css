@@ -775,6 +775,18 @@ button:focus {
   .home__dashboards-values h2 {
     font-size: 18px;
   }
+  
+  .home__dashboards-detalhe-banco {
+    font-size: 18px;
+  }
+
+  .home__dashboards-detalhe-caixa {
+    font-size: 18px;
+  }
+
+  .home__dashboards-detalhe-total {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 1024px) {
