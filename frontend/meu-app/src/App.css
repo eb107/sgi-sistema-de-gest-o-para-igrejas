@@ -11,6 +11,8 @@ body {
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: light !important;
+  background: #fff;
 }
 
 img,
