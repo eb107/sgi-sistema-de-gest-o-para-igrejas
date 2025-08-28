@@ -746,7 +746,6 @@ button:focus {
   .home__dashboards2 {
     width: 50%;
     display: flex;
-    justify-content: center;
   }
 
   .home__dashboards {
@@ -758,7 +757,7 @@ button:focus {
   }
 
   .home__dashboards-info-total {
-    width: 80%;
+    width: 70%;
   }
 
   .home__dashboards-info {
@@ -769,11 +768,14 @@ button:focus {
     font-size: 15px;
   }
 
+  .home__dashboards-title-total {
+    font-size: 15px;
+  }
+
   .home__dashboards-values h2 {
     font-size: 18px;
   }
 }
-
 
 @media (max-width: 1024px) {
   .home__main {
