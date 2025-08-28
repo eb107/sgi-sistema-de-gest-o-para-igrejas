@@ -762,7 +762,15 @@ button:focus {
   }
 
   .home__dashboards-info {
-    width: 85%;
+    width: 95%;
+  }
+
+  .home__dashboards-title {
+    font-size: 15px;
+  }
+
+  .home__dashboards-values h2 {
+    font-size: 18px;
   }
 }
 
